@@ -1,26 +1,32 @@
+# ---------- Base ----------
 FROM node:22-slim AS base
 ENV PNPM_HOME=/root/.local/share/pnpm \
     NODE_ENV=production
 ENV PATH=$PNPM_HOME:$PATH
 RUN corepack enable
-
 WORKDIR /app
 
 COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
 COPY apps/api/package.json apps/api/
 
+# ---------- Deps (com store local ao projeto) ----------
 FROM base AS deps
 RUN pnpm config set store-dir .pnpm-store
 RUN pnpm install -r --frozen-lockfile
 
+# ---------- Build ----------
 FROM deps AS build
 COPY . .
-RUN pnpm --filter @hefesto/api build
+ARG SERVICE_FILTER=@hefesto/api
+RUN pnpm --filter ${SERVICE_FILTER} build
 
+# ---------- Runtime ----------
 FROM node:22-slim AS runner
 ENV NODE_ENV=production
 WORKDIR /app
+
 COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/.pnpm-store ./.pnpm-store
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
 
