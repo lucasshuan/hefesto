@@ -12,8 +12,6 @@
   Computer hardware listings with multi-source price history, tracking, and favorites — built as a modern monorepo.
 </p>
 
----
-
 ## Overview
 
 Hefesto is a platform for discovering and tracking PC components across multiple sources (marketplaces and retailers). It supports user accounts, favorites, watchlists, and historical pricing so you can make informed buying decisions.
