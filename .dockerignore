@@ -1,0 +1,9 @@
+.git
+node_modules
+.pnpm-store
+.vscode
+**/dist
+**/.next
+**/out
+docker-compose.yml
+.env*
