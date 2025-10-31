@@ -1,14 +1,17 @@
 {
   "provider": "railway",
   "$schema": "https://schema.railpack.com",
+  "packages": {
+    "node": "22"
+  },
   "steps": {
     "install": {
       "commands": [
-        "npm i -g corepack@latest",
         "corepack enable",
         "corepack prepare pnpm@10.20.0 --activate",
-        "cp ../../pnpm-workspace.yaml . || true",
-        "cp ../../pnpm-lock.yaml . || true",
+        "cp ../../pnpm-workspace.yaml .",
+        "cp ../../pnpm-lock.yaml .",
+        "pnpm config set store-dir .pnpm-store",
         "pnpm install -r --frozen-lockfile"
       ]
     },
