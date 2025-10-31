@@ -22,7 +22,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "railway:build:api": "npm i -g corepack@latest && corepack enable && corepack prepare pnpm@latest-10 --activate && pnpm install -r --frozen-lockfile && pnpm --filter @sua-org/backend build",
+    "railway:start:api": "pnpm --filter @sua-org/backend start:prod"
   },
   "dependencies": {
     "@google-cloud/storage": "^7.17.2",
@@ -86,6 +88,7 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "packageManager": "pnpm@10.20.0"
   }
 }
