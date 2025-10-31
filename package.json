@@ -24,8 +24,11 @@
     "typescript-eslint": "^8.46.2"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
+    "apps/web/**/*.{ts,tsx,js,jsx}": [
+      "pnpm -C apps/web exec eslint --fix"
+    ],
+    "apps/api/**/*.{ts,tsx,js,jsx}": [
+      "pnpm -C apps/api exec eslint --fix"
     ],
     "*.{json,md,css,scss}": [
       "prettier --write"

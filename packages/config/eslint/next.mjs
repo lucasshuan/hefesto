@@ -14,10 +14,6 @@ export default function nextEslint({ ignores = [] } = {}) {
     ...tseslint.configs.recommended,
 
     {
-      files: ['**/*.ts', '**/*.tsx'],
-      languageOptions: {
-        parser: tseslint.parser,
-      },
       rules: {
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
         '@typescript-eslint/no-explicit-any': 'warn',
