@@ -115,16 +115,6 @@ The OpenAPI schema is used to generate fully typed clients through **Orval**.
 
 Next.js frontend consuming the API, featuring browsing, search, and user features (favorites, tracking), with future micro-frontend expansion.
 
-## Roadmap
-
-- Orval client generation in `packages/types`
-- Shared UI kit in `packages/ui`
-- Price ingestion & schedulers (multi-source)
-- Alerts (price drops, stock changes)
-- Micro-services & micro-frontends
-- i18n (EN/PT) across web & API responses
-- Admin dashboards (brands, sources, components)
-
 ## License
 
 TBD
