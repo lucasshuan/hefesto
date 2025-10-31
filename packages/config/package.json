@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./eslint/node": "./eslint/node.mts",
-    "./eslint/next": "./eslint/next.mts"
+    "./eslint/node": "./eslint/node.ts",
+    "./eslint/next": "./eslint/next.ts"
   },
   "peerDependencies": {
     "@eslint/js": "^9.0.0",
