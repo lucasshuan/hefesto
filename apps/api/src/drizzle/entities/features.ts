@@ -1,7 +1,7 @@
-import { pgTable, varchar, uniqueIndex, foreignKey } from 'drizzle-orm/pg-core';
-import { categories } from './categories';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { pgTable, varchar, uniqueIndex, foreignKey } from 'drizzle-orm/pg-core'
+import { categories } from './categories'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const features = pgTable(
   'features',
@@ -18,5 +18,5 @@ export const features = pgTable(
       columns: [t.categoryId],
       foreignColumns: [categories.id],
     }).onDelete('cascade'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

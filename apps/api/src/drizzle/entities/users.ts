@@ -1,7 +1,7 @@
-import { pgTable, text, boolean } from 'drizzle-orm/pg-core';
-import { userRoles } from '../enums/user-role';
-import { baseColumns } from '../helpers/columns';
-import { UserRole } from '@/common/enums/user-role.enum';
+import { pgTable, text, boolean } from 'drizzle-orm/pg-core'
+import { userRoles } from '../enums/user-role'
+import { baseColumns } from '../helpers/columns'
+import { UserRole } from '@/common/enums/user-role.enum'
 
 export const users = pgTable('user', {
   ...baseColumns,
@@ -10,4 +10,4 @@ export const users = pgTable('user', {
   emailVerified: boolean('email_verified').default(false).notNull(),
   imageUrl: text('image_url'),
   role: userRoles('role').default(UserRole.USER).notNull(),
-}).enableRLS();
+}).enableRLS()

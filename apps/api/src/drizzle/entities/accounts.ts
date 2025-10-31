@@ -1,7 +1,7 @@
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { users } from './users'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const accounts = pgTable('accounts', {
   ...baseColumns,
@@ -17,4 +17,4 @@ export const accounts = pgTable('accounts', {
   refreshTokenExpiresAt: timestamp('refresh_token_expires_at'),
   scope: text('scope'),
   password: text('password'),
-}).enableRLS();
+}).enableRLS()

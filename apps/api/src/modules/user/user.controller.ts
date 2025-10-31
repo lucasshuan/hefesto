@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Param, Put } from '@nestjs/common';
-import { UserService } from './user.service';
-import { ApiOkResponse, ApiOperation } from '@nestjs/swagger';
-import { UserDto } from './dtos/user.dto';
-import { UpdateUserDto } from './dtos/update-user.dto';
+import { Body, Controller, Get, Param, Put } from '@nestjs/common'
+import { UserService } from './user.service'
+import { ApiOkResponse, ApiOperation } from '@nestjs/swagger'
+import { UserDto } from './dtos/user.dto'
+import { UpdateUserDto } from './dtos/update-user.dto'
 
 @Controller('users')
 export class UserController {
@@ -16,7 +16,7 @@ export class UserController {
   @ApiOkResponse({ type: [UserDto] })
   @Get()
   async findAll() {
-    return await this.userService.findAll();
+    return await this.userService.findAll()
   }
 
   @ApiOperation({
@@ -27,7 +27,7 @@ export class UserController {
   @ApiOkResponse({ type: UserDto })
   @Get(':id')
   async findById(@Param('id') id: string) {
-    return await this.userService.findById(id);
+    return await this.userService.findById(id)
   }
 
   @ApiOperation({
@@ -38,6 +38,6 @@ export class UserController {
   @ApiOkResponse({ type: UserDto })
   @Put(':id')
   async update(@Param('id') id: string, @Body() userDto: UpdateUserDto) {
-    return await this.userService.update(id, userDto);
+    return await this.userService.update(id, userDto)
   }
 }

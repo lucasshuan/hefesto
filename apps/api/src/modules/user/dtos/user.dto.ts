@@ -1,28 +1,28 @@
-import type { UserRole } from '@/common/enums/user-role.enum';
-import { ApiProperty } from '@nestjs/swagger';
+import type { UserRole } from '@/common/enums/user-role.enum'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class UserDto {
   @ApiProperty()
-  id: string;
+  id: string
 
   @ApiProperty()
-  email: string;
+  email: string
 
   @ApiProperty()
-  name: string;
+  name: string
 
   @ApiProperty()
-  imageUrl: string | null;
+  imageUrl: string | null
 
   @ApiProperty()
-  emailVerified: boolean;
+  emailVerified: boolean
 
   @ApiProperty()
-  role: UserRole;
+  role: UserRole
 
   @ApiProperty()
-  createdAt: Date;
+  createdAt: Date
 
   @ApiProperty()
-  updatedAt: Date;
+  updatedAt: Date
 }

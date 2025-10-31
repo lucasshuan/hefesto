@@ -6,19 +6,19 @@ import {
   Post,
   Put,
   UseGuards,
-} from '@nestjs/common';
-import { BrandService } from './brand.service';
-import { CreateBrandDto } from './dtos/create-brand.dto';
+} from '@nestjs/common'
+import { BrandService } from './brand.service'
+import { CreateBrandDto } from './dtos/create-brand.dto'
 import {
   ApiBody,
   ApiCookieAuth,
   ApiOkResponse,
   ApiOperation,
   ApiParam,
-} from '@nestjs/swagger';
-import { SessionGuard } from '../auth/guards/session.guard';
-import { UpdateBrandDto } from './dtos/update-brand.dto';
-import { BrandDto } from './dtos/brand.dto';
+} from '@nestjs/swagger'
+import { SessionGuard } from '../auth/guards/session.guard'
+import { UpdateBrandDto } from './dtos/update-brand.dto'
+import { BrandDto } from './dtos/brand.dto'
 
 @Controller('brands')
 export class BrandController {
@@ -32,7 +32,7 @@ export class BrandController {
   @ApiOkResponse({ type: [BrandDto] })
   @Get()
   async findAll() {
-    return await this.brandService.findAll();
+    return await this.brandService.findAll()
   }
 
   @ApiOperation({
@@ -44,7 +44,7 @@ export class BrandController {
   @ApiParam({ name: 'id', type: String, description: 'Brand id' })
   @Get(':id')
   async findById(@Param('id') id: string) {
-    return this.brandService.findById(id);
+    return this.brandService.findById(id)
   }
 
   @ApiCookieAuth('session')
@@ -57,7 +57,7 @@ export class BrandController {
   @Post()
   @UseGuards(SessionGuard)
   async create(@Body() brandDto: CreateBrandDto) {
-    return await this.brandService.create(brandDto);
+    return await this.brandService.create(brandDto)
   }
 
   @ApiCookieAuth('session')
@@ -71,6 +71,6 @@ export class BrandController {
   @Put(':id')
   @UseGuards(SessionGuard)
   async update(@Param('id') id: string, @Body() brandDto: UpdateBrandDto) {
-    return await this.brandService.update(id, brandDto);
+    return await this.brandService.update(id, brandDto)
   }
 }

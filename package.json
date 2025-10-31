@@ -6,7 +6,8 @@
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "lint": "turbo run lint --parallel",
-    "clean": "turbo run clean --parallel || true",
+    "format": "turbo run prettier --parallel || true",
+    "typecheck": "turbo run typecheck --parallel",
     "prepare": "husky"
   },
   "devDependencies": {

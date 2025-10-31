@@ -1,15 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { ListingRepository } from './listing.repository';
+import { Injectable } from '@nestjs/common'
+import { ListingRepository } from './listing.repository'
 
 @Injectable()
 export class ListingService {
   constructor(private readonly listingRepository: ListingRepository) {}
 
   async list() {
-    return this.listingRepository.selectAll();
+    return this.listingRepository.selectAll()
   }
 
   async findById(id: string) {
-    return this.listingRepository.selectById(id);
+    return this.listingRepository.selectById(id)
   }
 }

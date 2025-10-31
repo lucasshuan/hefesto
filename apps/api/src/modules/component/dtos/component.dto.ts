@@ -1,28 +1,28 @@
-import type { ComponentTier } from '@/common/enums/component-tier.enum';
-import { ApiProperty } from '@nestjs/swagger';
+import type { ComponentTier } from '@/common/enums/component-tier.enum'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class ComponentDto {
   @ApiProperty()
-  id: string;
+  id: string
 
   @ApiProperty()
-  name: string;
+  name: string
 
   @ApiProperty()
-  brandId: string | null;
+  brandId: string | null
 
   @ApiProperty()
-  categoryId: string | null;
+  categoryId: string | null
 
   @ApiProperty()
-  model: string | null;
+  model: string | null
 
   @ApiProperty()
-  tier: ComponentTier;
+  tier: ComponentTier
 
   @ApiProperty()
-  createdAt: Date;
+  createdAt: Date
 
   @ApiProperty()
-  updatedAt: Date;
+  updatedAt: Date
 }

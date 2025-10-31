@@ -1,9 +1,9 @@
-import { pgTable, uniqueIndex, varchar } from 'drizzle-orm/pg-core';
-import { vendorTypes } from '../enums/source-vendor-type';
-import { trustLevels } from '../enums/source-trust-level';
-import { baseColumns } from '../helpers/columns';
-import { SourceVendorType } from '@/common/enums/source-vendor-type.enum';
-import { SourceTrustLevel } from '@/common/enums/source-trust-level.enum';
+import { pgTable, uniqueIndex, varchar } from 'drizzle-orm/pg-core'
+import { vendorTypes } from '../enums/source-vendor-type'
+import { trustLevels } from '../enums/source-trust-level'
+import { baseColumns } from '../helpers/columns'
+import { SourceVendorType } from '@/common/enums/source-vendor-type.enum'
+import { SourceTrustLevel } from '@/common/enums/source-trust-level.enum'
 
 export const sources = pgTable(
   'source',
@@ -19,5 +19,5 @@ export const sources = pgTable(
       .default(SourceTrustLevel.UNVERIFIED)
       .notNull(),
   },
-  (t) => [uniqueIndex('uq_source_name').on(t.name)],
-).enableRLS();
+  (t) => [uniqueIndex('uq_source_name').on(t.name)]
+).enableRLS()

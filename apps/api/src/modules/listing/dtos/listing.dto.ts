@@ -1,27 +1,27 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger'
 
 export class ListingDto {
   @ApiProperty()
-  id: string;
+  id: string
 
   @ApiProperty()
-  componentId: string;
+  componentId: string
 
   @ApiProperty()
-  sourceId: string;
+  sourceId: string
 
   @ApiProperty()
-  url: string;
+  url: string
 
   @ApiProperty()
-  available: boolean;
+  available: boolean
 
   @ApiProperty()
-  currency: string;
+  currency: string
 
   @ApiProperty()
-  createdAt: Date;
+  createdAt: Date
 
   @ApiProperty()
-  updatedAt: Date;
+  updatedAt: Date
 }

@@ -4,9 +4,9 @@ import {
   foreignKey,
   unique,
   primaryKey,
-} from 'drizzle-orm/pg-core';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+} from 'drizzle-orm/pg-core'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const categories = pgTable(
   'categories',
@@ -20,8 +20,8 @@ export const categories = pgTable(
       columns: [t.parentCategoryId],
       foreignColumns: [t.id],
     }).onDelete('set null'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()
 
 export const categoryTranslations = pgTable(
   'category_translations',
@@ -35,5 +35,5 @@ export const categoryTranslations = pgTable(
   (t) => [
     primaryKey({ columns: [t.categoryId, t.locale] }),
     unique('uq_cat_name_locale').on(t.locale, t.name),
-  ],
-);
+  ]
+)

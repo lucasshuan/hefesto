@@ -1,16 +1,16 @@
-import { customType } from 'drizzle-orm/pg-core';
+import { customType } from 'drizzle-orm/pg-core'
 
 export const stringBigint = customType<{
-  data: string;
-  driverData: string;
+  data: string
+  driverData: string
 }>({
   dataType() {
-    return 'bigint';
+    return 'bigint'
   },
   fromDriver(value: string): string {
-    return value;
+    return value
   },
   toDriver(value: string): string {
-    return value;
+    return value
   },
-});
+})

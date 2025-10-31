@@ -1,29 +1,29 @@
-import type { SourceTrustLevel } from '@/common/enums/source-trust-level.enum';
-import type { SourceVendorType } from '@/common/enums/source-vendor-type.enum';
-import { ApiProperty } from '@nestjs/swagger';
+import type { SourceTrustLevel } from '@/common/enums/source-trust-level.enum'
+import type { SourceVendorType } from '@/common/enums/source-vendor-type.enum'
+import { ApiProperty } from '@nestjs/swagger'
 
 export class SourceDto {
   @ApiProperty()
-  id: string;
+  id: string
 
   @ApiProperty()
-  name: string;
+  name: string
 
   @ApiProperty()
-  domain: string;
+  domain: string
 
   @ApiProperty()
-  country: string;
+  country: string
 
   @ApiProperty()
-  vendorType: SourceVendorType;
+  vendorType: SourceVendorType
 
   @ApiProperty()
-  trustLevel: SourceTrustLevel;
+  trustLevel: SourceTrustLevel
 
   @ApiProperty()
-  createdAt: Date;
+  createdAt: Date
 
   @ApiProperty()
-  updatedAt: Date;
+  updatedAt: Date
 }

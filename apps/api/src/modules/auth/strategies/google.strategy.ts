@@ -1,7 +1,7 @@
-import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, Profile } from 'passport-google-oauth20';
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { PassportStrategy } from '@nestjs/passport'
+import { Strategy, Profile } from 'passport-google-oauth20'
+import { Injectable } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
@@ -11,13 +11,13 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       clientSecret: config.getOrThrow('GOOGLE_CLIENT_SECRET'),
       callbackURL: config.getOrThrow('API_BASE_URL') + '/auth/google/callback',
       scope: ['profile', 'email'],
-    });
+    })
   }
 
   validate(_accessToken: string, _refreshToken: string, profile: Profile) {
-    const email = profile.emails?.[0]?.value;
+    const email = profile.emails?.[0]?.value
     if (!email) {
-      throw new Error('Google profile has no email');
+      throw new Error('Google profile has no email')
     }
     return {
       provider: 'google',
@@ -25,6 +25,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       email,
       name: profile.displayName,
       image: profile.photos?.[0]?.value ?? null,
-    };
+    }
   }
 }

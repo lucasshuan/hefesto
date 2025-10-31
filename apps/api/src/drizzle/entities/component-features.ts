@@ -1,8 +1,8 @@
-import { pgTable, text, uniqueIndex, foreignKey } from 'drizzle-orm/pg-core';
-import { components } from './components';
-import { features } from './features';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { pgTable, text, uniqueIndex, foreignKey } from 'drizzle-orm/pg-core'
+import { components } from './components'
+import { features } from './features'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const componentFeatures = pgTable(
   'component_features',
@@ -24,5 +24,5 @@ export const componentFeatures = pgTable(
       columns: [t.featureId],
       foreignColumns: [features.id],
     }).onDelete('cascade'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

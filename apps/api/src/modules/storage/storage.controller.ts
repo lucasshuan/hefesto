@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common'
 
 @Controller('storage')
 export class StorageController {
@@ -6,6 +6,6 @@ export class StorageController {
 
   @Post('upload')
   async upload() {
-    return {};
+    return {}
   }
 }

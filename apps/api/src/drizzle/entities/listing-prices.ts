@@ -1,7 +1,7 @@
-import { pgTable, numeric, foreignKey } from 'drizzle-orm/pg-core';
-import { listings } from './listings';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { pgTable, numeric, foreignKey } from 'drizzle-orm/pg-core'
+import { listings } from './listings'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const listingPrices = pgTable(
   'listing_prices',
@@ -16,5 +16,5 @@ export const listingPrices = pgTable(
       columns: [t.listingId],
       foreignColumns: [listings.id],
     }).onDelete('cascade'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

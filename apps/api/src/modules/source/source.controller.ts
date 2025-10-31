@@ -6,19 +6,19 @@ import {
   Post,
   Put,
   UseGuards,
-} from '@nestjs/common';
-import { SourceService } from './source.service';
+} from '@nestjs/common'
+import { SourceService } from './source.service'
 import {
   ApiBody,
   ApiCookieAuth,
   ApiOkResponse,
   ApiOperation,
   ApiParam,
-} from '@nestjs/swagger';
-import { SessionGuard } from '../auth/guards/session.guard';
-import { UpdateSourceDto } from './dtos/update-source.dto';
-import { CreateSourceDto } from './dtos/create-source.dto';
-import { SourceDto } from './dtos/source.dto';
+} from '@nestjs/swagger'
+import { SessionGuard } from '../auth/guards/session.guard'
+import { UpdateSourceDto } from './dtos/update-source.dto'
+import { CreateSourceDto } from './dtos/create-source.dto'
+import { SourceDto } from './dtos/source.dto'
 
 @Controller('sources')
 export class SourceController {
@@ -32,7 +32,7 @@ export class SourceController {
   @ApiOkResponse({ type: [SourceDto] })
   @Get()
   async list() {
-    return this.sourceService.list();
+    return this.sourceService.list()
   }
 
   @ApiOperation({
@@ -44,7 +44,7 @@ export class SourceController {
   @ApiParam({ name: 'id', type: String, description: 'Source id' })
   @Get(':id')
   async findById(@Param('id') id: string) {
-    return this.sourceService.findById(id);
+    return this.sourceService.findById(id)
   }
 
   @ApiCookieAuth('session')
@@ -57,7 +57,7 @@ export class SourceController {
   @Post()
   @UseGuards(SessionGuard)
   async create(@Body() sourceDto: CreateSourceDto) {
-    return await this.sourceService.create(sourceDto);
+    return await this.sourceService.create(sourceDto)
   }
 
   @ApiCookieAuth('session')
@@ -71,6 +71,6 @@ export class SourceController {
   @Put(':id')
   @UseGuards(SessionGuard)
   async update(@Param('id') id: string, @Body() sourceDto: UpdateSourceDto) {
-    return await this.sourceService.update(id, sourceDto);
+    return await this.sourceService.update(id, sourceDto)
   }
 }

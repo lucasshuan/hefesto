@@ -2,178 +2,178 @@
 // See: https://next-intl.dev/docs/workflows/typescript#messages-arguments
 
 declare const messages: {
-  "ui": {
-    "dataTable": {
-      "density": "Density: {density}",
-      "noResults": "No results.",
-      "pagination": {
-        "first": "First page",
-        "next": "Next page",
-        "last": "Last page",
-        "previous": "Previous page"
-      },
-      "search": "Search"
-    }
-  },
-  "main": {
-    "layout": {
-      "header": {
-        "profileMenu": {
-          "signedInAs": "Signed in as",
-          "profile": "View profile",
-          "favorites": "Favorites",
-          "signOut": "Sign out"
-        },
-        "languageMenu": {
-          "label": "Languages",
-          "flag": {
-            "en": "United States flag",
-            "pt": "Brazil flag"
-          }
-        },
-        "logo": {
-          "title": "Hefesto",
-          "alt": "Logo"
-        },
-        "search": {
-          "placeholder": "Search components, brands, or categories... (/)"
-        }
-      },
-      "nav": {
-        "primary": {
-          "categories": "Categories",
-          "brands": "Brands",
-          "sources": "Sources",
-          "prices": "Prices",
-          "contribute": "Contribute",
-          "dashboard": "Dashboard"
-        },
-        "dropdown": {
-          "prices": {
-            "drops": "Recent drops",
-            "trends": "Trends",
-            "alerts": "Alerts",
-            "history": "History"
-          },
-          "contribute": {
-            "donate": "Donate",
-            "github": "GitHub"
-          }
-        }
+  ui: {
+    dataTable: {
+      density: 'Density: {density}'
+      noResults: 'No results.'
+      pagination: {
+        first: 'First page'
+        next: 'Next page'
+        last: 'Last page'
+        previous: 'Previous page'
       }
-    },
-    "home": {
-      "meta": {
-        "title": "Hefesto - Hardware Database",
-        "description": "Listings and prices to plan your PC."
-      },
-      "title": "Hefesto: Hardware Database",
-      "subtitle": "Listings and prices to plan your PC.",
-      "actions": {
-        "explore": "Explore"
-      }
-    }
-  },
-  "dashboard": {
-    "common": {
-      "table": {
-        "columns": {
-          "id": "ID",
-          "createdAt": "Created at",
-          "updatedAt": "Updated at"
-        },
-        "actions": {
-          "edit": "Edit"
-        }
-      }
-    },
-    "layout": {
-      "routes": {
-        "dashboard": "Dashboard",
-        "manageUsers": "Users",
-        "manageCategories": "Categories",
-        "manageBrands": "Brands",
-        "manageComponents": "Components",
-        "manageSources": "Sources"
-      },
-      "items": {
-        "users": "Users",
-        "brands": "Brands",
-        "categories": "Categories",
-        "sources": "Sources",
-        "components": "Components",
-        "overview": "Overview"
-      },
-      "groups": {
-        "manage": "Manage"
-      }
-    },
-    "manageUsers": {
-      "meta": {
-        "title": "Manage Users | Dashboard",
-        "description": "User management"
-      },
-      "table": {
-        "title": "Users",
-        "columns": {
-          "email": "E-mail",
-          "avatar": "Avatar"
-        }
-      },
-      "title": "Manage Users"
-    },
-    "manageBrands": {
-      "meta": {
-        "title": "Manage Brands | Dashboard",
-        "description": "Brand management"
-      },
-      "table": {
-        "columns": {
-          "name": "Name"
-        },
-        "title": "Brands"
-      },
-      "title": "Manage Brands"
-    },
-    "manageCategories": {
-      "meta": {
-        "title": "Manage Categories | Dashboard",
-        "description": "Category management"
-      },
-      "table": {
-        "columns": {
-          "name": "Name"
-        },
-        "title": "Categories"
-      },
-      "title": "Manage Categories"
-    },
-    "manageSources": {
-      "meta": {
-        "title": "Manage Sources | Dashboard",
-        "description": "Source management"
-      }
-    },
-    "manageComponents": {
-      "meta": {
-        "title": "Manage Components | Dashboard",
-        "description": "Component management"
-      }
-    },
-    "overview": {
-      "meta": {
-        "title": "Overview | Dashboard",
-        "description": "Dashboard overview"
-      }
-    },
-    "actions": {
-      "add": "Add"
-    }
-  },
-  "drawers": {
-    "brand": {
-      "title": "{mode, select, add {Add} edit {Edit}} Brand"
+      search: 'Search'
     }
   }
-};
-export default messages;
+  main: {
+    layout: {
+      header: {
+        profileMenu: {
+          signedInAs: 'Signed in as'
+          profile: 'View profile'
+          favorites: 'Favorites'
+          signOut: 'Sign out'
+        }
+        languageMenu: {
+          label: 'Languages'
+          flag: {
+            en: 'United States flag'
+            pt: 'Brazil flag'
+          }
+        }
+        logo: {
+          title: 'Hefesto'
+          alt: 'Logo'
+        }
+        search: {
+          placeholder: 'Search components, brands, or categories... (/)'
+        }
+      }
+      nav: {
+        primary: {
+          categories: 'Categories'
+          brands: 'Brands'
+          sources: 'Sources'
+          prices: 'Prices'
+          contribute: 'Contribute'
+          dashboard: 'Dashboard'
+        }
+        dropdown: {
+          prices: {
+            drops: 'Recent drops'
+            trends: 'Trends'
+            alerts: 'Alerts'
+            history: 'History'
+          }
+          contribute: {
+            donate: 'Donate'
+            github: 'GitHub'
+          }
+        }
+      }
+    }
+    home: {
+      meta: {
+        title: 'Hefesto - Hardware Database'
+        description: 'Listings and prices to plan your PC.'
+      }
+      title: 'Hefesto: Hardware Database'
+      subtitle: 'Listings and prices to plan your PC.'
+      actions: {
+        explore: 'Explore'
+      }
+    }
+  }
+  dashboard: {
+    common: {
+      table: {
+        columns: {
+          id: 'ID'
+          createdAt: 'Created at'
+          updatedAt: 'Updated at'
+        }
+        actions: {
+          edit: 'Edit'
+        }
+      }
+    }
+    layout: {
+      routes: {
+        dashboard: 'Dashboard'
+        manageUsers: 'Users'
+        manageCategories: 'Categories'
+        manageBrands: 'Brands'
+        manageComponents: 'Components'
+        manageSources: 'Sources'
+      }
+      items: {
+        users: 'Users'
+        brands: 'Brands'
+        categories: 'Categories'
+        sources: 'Sources'
+        components: 'Components'
+        overview: 'Overview'
+      }
+      groups: {
+        manage: 'Manage'
+      }
+    }
+    manageUsers: {
+      meta: {
+        title: 'Manage Users | Dashboard'
+        description: 'User management'
+      }
+      table: {
+        title: 'Users'
+        columns: {
+          email: 'E-mail'
+          avatar: 'Avatar'
+        }
+      }
+      title: 'Manage Users'
+    }
+    manageBrands: {
+      meta: {
+        title: 'Manage Brands | Dashboard'
+        description: 'Brand management'
+      }
+      table: {
+        columns: {
+          name: 'Name'
+        }
+        title: 'Brands'
+      }
+      title: 'Manage Brands'
+    }
+    manageCategories: {
+      meta: {
+        title: 'Manage Categories | Dashboard'
+        description: 'Category management'
+      }
+      table: {
+        columns: {
+          name: 'Name'
+        }
+        title: 'Categories'
+      }
+      title: 'Manage Categories'
+    }
+    manageSources: {
+      meta: {
+        title: 'Manage Sources | Dashboard'
+        description: 'Source management'
+      }
+    }
+    manageComponents: {
+      meta: {
+        title: 'Manage Components | Dashboard'
+        description: 'Component management'
+      }
+    }
+    overview: {
+      meta: {
+        title: 'Overview | Dashboard'
+        description: 'Dashboard overview'
+      }
+    }
+    actions: {
+      add: 'Add'
+    }
+  }
+  drawers: {
+    brand: {
+      title: '{mode, select, add {Add} edit {Edit}} Brand'
+    }
+  }
+}
+export default messages

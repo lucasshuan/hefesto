@@ -1,7 +1,7 @@
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
-import { users } from './users';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+import { users } from './users'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const sessions = pgTable('session', {
   ...baseColumns,
@@ -12,4 +12,4 @@ export const sessions = pgTable('session', {
   userId: stringBigint('user_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-}).enableRLS();
+}).enableRLS()

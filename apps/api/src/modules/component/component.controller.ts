@@ -6,19 +6,19 @@ import {
   Post,
   Put,
   UseGuards,
-} from '@nestjs/common';
-import { ComponentService } from './component.service';
+} from '@nestjs/common'
+import { ComponentService } from './component.service'
 import {
   ApiBody,
   ApiCookieAuth,
   ApiOkResponse,
   ApiOperation,
   ApiParam,
-} from '@nestjs/swagger';
-import { SessionGuard } from '../auth/guards/session.guard';
-import { UpdateComponentDto } from './dtos/update-component.dto';
-import { CreateComponentDto } from './dtos/create-component.dto';
-import { ComponentDto } from './dtos/component.dto';
+} from '@nestjs/swagger'
+import { SessionGuard } from '../auth/guards/session.guard'
+import { UpdateComponentDto } from './dtos/update-component.dto'
+import { CreateComponentDto } from './dtos/create-component.dto'
+import { ComponentDto } from './dtos/component.dto'
 
 @Controller('components')
 export class ComponentController {
@@ -32,7 +32,7 @@ export class ComponentController {
   @ApiOkResponse({ type: [ComponentDto] })
   @Get()
   async list() {
-    return await this.componentService.list();
+    return await this.componentService.list()
   }
 
   @ApiOperation({
@@ -44,7 +44,7 @@ export class ComponentController {
   @ApiParam({ name: 'id', type: String, description: 'Component id' })
   @Get(':id')
   async findById(@Param('id') id: string) {
-    return this.componentService.findById(id);
+    return this.componentService.findById(id)
   }
 
   @ApiCookieAuth('session')
@@ -57,7 +57,7 @@ export class ComponentController {
   @Post()
   @UseGuards(SessionGuard)
   async create(@Body() componentDto: CreateComponentDto) {
-    return await this.componentService.create(componentDto);
+    return await this.componentService.create(componentDto)
   }
 
   @ApiCookieAuth('session')
@@ -72,8 +72,8 @@ export class ComponentController {
   @UseGuards(SessionGuard)
   async update(
     @Param('id') id: string,
-    @Body() componentDto: UpdateComponentDto,
+    @Body() componentDto: UpdateComponentDto
   ) {
-    return await this.componentService.update(id, componentDto);
+    return await this.componentService.update(id, componentDto)
   }
 }

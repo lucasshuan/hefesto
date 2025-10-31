@@ -1,5 +1,5 @@
-import 'dotenv/config';
-import { Config } from 'drizzle-kit';
+import 'dotenv/config'
+import { Config } from 'drizzle-kit'
 
 export default {
   schema: ['./src/drizzle/database/schema.ts'],
@@ -10,4 +10,4 @@ export default {
   },
   verbose: true,
   strict: true,
-} satisfies Config;
+} satisfies Config

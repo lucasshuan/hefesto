@@ -4,13 +4,13 @@ import {
   foreignKey,
   index,
   uniqueIndex,
-} from 'drizzle-orm/pg-core';
-import { categories } from './categories';
-import { brands } from './brands';
-import { componentTiers } from '../enums/component-tier';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
-import { ComponentTier } from '@/common/enums/component-tier.enum';
+} from 'drizzle-orm/pg-core'
+import { categories } from './categories'
+import { brands } from './brands'
+import { componentTiers } from '../enums/component-tier'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
+import { ComponentTier } from '@/common/enums/component-tier.enum'
 
 export const components = pgTable(
   'component',
@@ -36,5 +36,5 @@ export const components = pgTable(
       columns: [t.categoryId],
       foreignColumns: [categories.id],
     }).onDelete('set null'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

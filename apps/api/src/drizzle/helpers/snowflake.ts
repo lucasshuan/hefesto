@@ -1,13 +1,13 @@
-import { Snowflake } from '@sapphire/snowflake';
+import { Snowflake } from '@sapphire/snowflake'
 
-const epoch = 1766886000;
+const epoch = 1766886000
 
-const snowflakeFactory = new Snowflake(epoch);
+const snowflakeFactory = new Snowflake(epoch)
 
 export function generateSnowflake() {
-  return snowflakeFactory.generate().toString();
+  return snowflakeFactory.generate().toString()
 }
 
 export function parseSnowflake(id: string) {
-  return snowflakeFactory.deconstruct(id);
+  return snowflakeFactory.deconstruct(id)
 }

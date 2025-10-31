@@ -1,7 +1,7 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import { ListingService } from './listing.service';
-import { ApiOkResponse, ApiOperation, ApiParam } from '@nestjs/swagger';
-import { ListingDto } from './dtos/listing.dto';
+import { Controller, Get, Param } from '@nestjs/common'
+import { ListingService } from './listing.service'
+import { ApiOkResponse, ApiOperation, ApiParam } from '@nestjs/swagger'
+import { ListingDto } from './dtos/listing.dto'
 
 @Controller('listings')
 export class ListingController {
@@ -15,7 +15,7 @@ export class ListingController {
   @ApiOkResponse({ type: [ListingDto] })
   @Get()
   async list() {
-    return this.listingService.list();
+    return this.listingService.list()
   }
 
   @ApiOperation({
@@ -27,6 +27,6 @@ export class ListingController {
   @ApiParam({ name: 'id', type: String, description: 'Listing id' })
   @Get(':id')
   async findById(@Param('id') id: string) {
-    return this.listingService.findById(id);
+    return this.listingService.findById(id)
   }
 }

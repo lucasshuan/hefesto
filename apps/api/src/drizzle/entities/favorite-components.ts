@@ -1,8 +1,8 @@
-import { timestamp, pgTable, foreignKey } from 'drizzle-orm/pg-core';
-import { components } from './components';
-import { users } from './users';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+import { timestamp, pgTable, foreignKey } from 'drizzle-orm/pg-core'
+import { components } from './components'
+import { users } from './users'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const favoriteComponents = pgTable(
   'favorite_component',
@@ -23,5 +23,5 @@ export const favoriteComponents = pgTable(
       columns: [t.userId],
       foreignColumns: [users.id],
     }).onDelete('cascade'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

@@ -5,11 +5,11 @@ import {
   uniqueIndex,
   index,
   foreignKey,
-} from 'drizzle-orm/pg-core';
-import { components } from './components';
-import { sources } from './sources';
-import { baseColumns } from '../helpers/columns';
-import { stringBigint } from '../helpers/custom-types';
+} from 'drizzle-orm/pg-core'
+import { components } from './components'
+import { sources } from './sources'
+import { baseColumns } from '../helpers/columns'
+import { stringBigint } from '../helpers/custom-types'
 
 export const listings = pgTable(
   'listings',
@@ -35,5 +35,5 @@ export const listings = pgTable(
       columns: [t.sourceId],
       foreignColumns: [sources.id],
     }).onDelete('cascade'),
-  ],
-).enableRLS();
+  ]
+).enableRLS()

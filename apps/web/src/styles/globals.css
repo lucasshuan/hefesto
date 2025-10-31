@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -133,14 +133,16 @@
   0% {
     translate: 0;
     rotate: 0deg;
-    scale: .6 .6;
+    scale: 0.6 0.6;
     opacity: 0;
   }
-  20% { opacity: 0.5; } 
+  20% {
+    opacity: 0.5;
+  }
   100% {
     translate: var(--ember-drift) -35vh;
-    rotate: var(--ember-rotation); 
-    scale: .05 3;
+    rotate: var(--ember-rotation);
+    scale: 0.05 3;
     opacity: 0;
   }
 }
@@ -161,8 +163,7 @@
   @apply block absolute bottom-0 rounded-full pointer-events-none;
   background: color-mix(in oklab, var(--primary) 100%, transparent);
   animation: rise ease-in infinite;
-  animation-delay: -.5s;
+  animation-delay: -0.5s;
   will-change: translate, rotate, scale, opacity;
   transform-origin: center;
 }
-
