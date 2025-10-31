@@ -1,3 +1,3 @@
-import nextEslint from '@felsen/config/eslint/next'
+import nextEslint from '@hefesto/config/eslint/next'
 
 export default nextEslint({ tsconfigDir: import.meta.dirname })
