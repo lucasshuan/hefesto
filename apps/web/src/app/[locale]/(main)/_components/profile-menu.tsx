@@ -50,7 +50,7 @@ export function ProfileMenu({ interactable = true }: ProfileMenuProps) {
                 <Avatar className="h-6 w-6">
                   <AvatarImage
                     src={me.imageUrl as unknown as string | undefined}
-                    alt={me.name!}
+                    alt={me.name}
                   />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>

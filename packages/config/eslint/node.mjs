@@ -6,10 +6,19 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default function nodeEslint({ tsconfigDir = process.cwd(), ignores = [] } = {}) {
   return defineConfig([
-    { ignores: ['**/node_modules/**', '**/dist/**', '**/.next/**', ...ignores] },
+    {
+      ignores: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/*.d.ts',
+        'test/**/*.js', // <— ignora testes .js
+        ...ignores,
+      ],
+    },
 
     js.configs.recommended,
 
+    // Regras type-checked
     ...tseslint.configs.recommendedTypeChecked.map((cfg) => ({
       ...cfg,
       files: ['**/*.ts'],
@@ -19,7 +28,8 @@ export default function nodeEslint({ tsconfigDir = process.cwd(), ignores = [] }
       files: ['**/*.ts'],
       languageOptions: {
         parserOptions: {
-          projectService: true,
+          // usa o tsconfig.eslint.json que você criou
+          project: ['./tsconfig.eslint.json'],
           tsconfigRootDir: tsconfigDir,
         },
         sourceType: 'commonjs',
@@ -32,7 +42,9 @@ export default function nodeEslint({ tsconfigDir = process.cwd(), ignores = [] }
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-floating-promises': 'warn',
         '@typescript-eslint/no-unsafe-argument': 'warn',
-        'prettier/prettier': ['error', { endOfLine: 'auto' }]
+        // evite encher por causa de handlers async sem await
+        '@typescript-eslint/require-await': 'off',
+        'prettier/prettier': 'error',
       },
     },
 

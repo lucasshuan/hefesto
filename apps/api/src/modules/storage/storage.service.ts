@@ -98,6 +98,13 @@ export class StorageService {
       signedUrl,
     }
   }
+  async removeFile(path: string): Promise<void> {
+    if (!path || typeof path !== 'string') {
+      throw new Error('Caminho do arquivo é obrigatório para remoção.')
+    }
+    const clean = path.replace(/^\/+/, '')
+    const file = this.bucket.file(clean)
 
-  async removeFile(fileName: string): Promise<void> {}
+    await file.delete({ ignoreNotFound: true })
+  }
 }

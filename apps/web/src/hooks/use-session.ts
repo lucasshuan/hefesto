@@ -7,7 +7,7 @@ export async function fetchSession(): Promise<UserDto | null> {
   try {
     const data = await me()
     if (!data) return null
-    return data as UserDto
+    return data
   } catch {
     return null
   }
