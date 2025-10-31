@@ -15,6 +15,9 @@ importers:
       '@eslint/js':
         specifier: ^9.38.0
         version: 9.38.0
+      '@types/node':
+        specifier: ^24.9.2
+        version: 24.9.2
       eslint:
         specifier: ^9.38.0
         version: 9.38.0(jiti@2.6.1)
@@ -120,7 +123,7 @@ importers:
     devDependencies:
       '@hefesto/config':
         specifier: workspace:*
-        version: link:../../packages/config
+        version: file:packages/config(@eslint/js@9.38.0)(@next/eslint-plugin-next@16.0.1)(@types/node@22.18.13)(eslint-plugin-prettier@5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.38.0(jiti@2.6.1)))(eslint@9.38.0(jiti@2.6.1))(prettier@3.6.2))(eslint@9.38.0(jiti@2.6.1))(globals@16.4.0)(typescript-eslint@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))
       '@nestjs/cli':
         specifier: ^11.0.10
         version: 11.0.10(@types/node@22.18.13)(esbuild@0.25.11)
@@ -326,6 +329,9 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^16.0.0
         version: 16.0.1
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.24
       eslint:
         specifier: ^9.0.0
         version: 9.38.0(jiti@2.6.1)
@@ -1445,6 +1451,17 @@ packages:
       {
         integrity: sha512-KR3rD5inZbGMrHmgPxsJ9dbi6zEK+C3ZwUwTa+eMwWLz7oijWUTWD2pMSNNYJAU6Qq+65NkxXjqHr/7LM2Xkqg==,
       }
+
+  '@hefesto/config@file:packages/config':
+    resolution: { directory: packages/config, type: directory }
+    peerDependencies:
+      '@eslint/js': ^9.0.0
+      '@next/eslint-plugin-next': ^16.0.0
+      '@types/node': ^20.0.0
+      eslint: ^9.0.0
+      eslint-plugin-prettier: ^5.0.0
+      globals: ^16.0.0
+      typescript-eslint: ^8.0.0
 
   '@hookform/resolvers@5.2.2':
     resolution:
@@ -3651,6 +3668,12 @@ packages:
     resolution:
       {
         integrity: sha512-Bo45YKIjnmFtv6I1TuC8AaHBbqXtIo+Om5fE4QiU1Tj8QR/qt+8O3BAtOimG5IFmwaWiPmB3Mv3jtYzBA4Us2A==,
+      }
+
+  '@types/node@24.9.2':
+    resolution:
+      {
+        integrity: sha512-uWN8YqxXxqFMX2RqGOrumsKeti4LlmIMIyV0lgut4jx7KQBcBiW6vkDtIBvHnHIquwNfJhk8v2OtmO8zXWHfPA==,
       }
 
   '@types/oauth@0.9.6':
@@ -9900,6 +9923,12 @@ packages:
         integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==,
       }
 
+  undici-types@7.16.0:
+    resolution:
+      {
+        integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==,
+      }
+
   universalify@2.0.1:
     resolution:
       {
@@ -10925,6 +10954,16 @@ snapshots:
   '@hapi/topo@6.0.2':
     dependencies:
       '@hapi/hoek': 11.0.7
+
+  '@hefesto/config@file:packages/config(@eslint/js@9.38.0)(@next/eslint-plugin-next@16.0.1)(@types/node@22.18.13)(eslint-plugin-prettier@5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.38.0(jiti@2.6.1)))(eslint@9.38.0(jiti@2.6.1))(prettier@3.6.2))(eslint@9.38.0(jiti@2.6.1))(globals@16.4.0)(typescript-eslint@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))':
+    dependencies:
+      '@eslint/js': 9.38.0
+      '@next/eslint-plugin-next': 16.0.1
+      '@types/node': 22.18.13
+      eslint: 9.38.0(jiti@2.6.1)
+      eslint-plugin-prettier: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.38.0(jiti@2.6.1)))(eslint@9.38.0(jiti@2.6.1))(prettier@3.6.2)
+      globals: 16.4.0
+      typescript-eslint: 8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
 
   '@hookform/resolvers@5.2.2(react-hook-form@7.65.0(react@19.1.0))':
     dependencies:
@@ -12544,7 +12583,7 @@ snapshots:
 
   '@types/es-aggregate-error@1.0.6':
     dependencies:
-      '@types/node': 20.19.24
+      '@types/node': 22.18.13
 
   '@types/eslint-scope@3.7.7':
     dependencies:
@@ -12616,6 +12655,10 @@ snapshots:
   '@types/node@22.18.13':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/node@24.9.2':
+    dependencies:
+      undici-types: 7.16.0
 
   '@types/oauth@0.9.6':
     dependencies:
@@ -16691,6 +16734,8 @@ snapshots:
       which-boxed-primitive: 1.1.1
 
   undici-types@6.21.0: {}
+
+  undici-types@7.16.0: {}
 
   universalify@2.0.1: {}
 
