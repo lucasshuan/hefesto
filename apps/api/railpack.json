@@ -9,9 +9,6 @@
       "commands": [
         "corepack enable",
         "corepack prepare pnpm@10.20.0 --activate",
-        "cp ../../pnpm-workspace.yaml .",
-        "cp ../../pnpm-lock.yaml .",
-        "pnpm config set store-dir .pnpm-store",
         "pnpm install -r --frozen-lockfile"
       ]
     },
@@ -21,10 +18,10 @@
           "step": "install"
         }
       ],
-      "commands": ["pnpm --filter @hefesto/api build"]
+      "commands": ["pnpm --filter ${SERVICE_FILTER:-@hefesto/api} build"]
     }
   },
   "deploy": {
-    "startCommand": "pnpm --filter @hefesto/api start:prod"
+    "startCommand": "pnpm --filter ${SERVICE_FILTER:-@hefesto/api} start:prod"
   }
 }
