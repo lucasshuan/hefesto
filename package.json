@@ -23,7 +23,6 @@
   "pnpm": {
     "overrides": {
       "typescript": "^5.7.3",
-      "eslint": "^9.18.0",
       "prettier": "^3.6.2"
     }
   }
