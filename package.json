@@ -30,8 +30,8 @@
     "apps/api/**/*.{ts,tsx,js,jsx}": [
       "pnpm -C apps/api exec eslint --fix"
     ],
-    "*": [
-      "prettier --write"
+    "*.{md,mdx,json,yml,yaml,css,scss,html}": [
+      "prettier --write --ignore-unknown"
     ]
   },
   "pnpm": {
