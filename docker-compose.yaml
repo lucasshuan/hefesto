@@ -1,0 +1,46 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: hefesto-db
+    environment:
+      POSTGRES_DB: hefesto
+      POSTGRES_USER: hefesto
+      POSTGRES_PASSWORD: hefesto
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: hefesto-api
+    depends_on:
+      - db
+    env_file:
+      - apps/api/.env.development
+    environment:
+      NODE_ENV: development
+    ports:
+      - '3001:3000'
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: hefesto-web
+    depends_on:
+      - api
+    env_file:
+      - apps/web/.env.development
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:3000
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+
+volumes:
+  pgdata:

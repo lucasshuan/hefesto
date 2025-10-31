@@ -5,6 +5,7 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -50,7 +51,7 @@
     "rxjs": "7.8.2"
   },
   "devDependencies": {
-    "@felsen/config": "workspace:*",
+    "@hefesto/config": "workspace:*",
     "@nestjs/cli": "^11.0.10",
     "@nestjs/schematics": "^11.0.9",
     "@nestjs/testing": "^11.0.1",
@@ -86,7 +87,6 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node",
-    "packageManager": "pnpm@10.20.0"
+    "testEnvironment": "node"
   }
 }
