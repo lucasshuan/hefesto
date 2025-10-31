@@ -1,0 +1,27 @@
+{
+  "provider": "railway",
+  "$schema": "https://schema.railpack.com",
+  "steps": {
+    "install": {
+      "commands": [
+        "npm i -g corepack@latest",
+        "corepack enable",
+        "corepack prepare pnpm@10.20.0 --activate",
+        "cp ../../pnpm-workspace.yaml . || true",
+        "cp ../../pnpm-lock.yaml . || true",
+        "pnpm install -r --frozen-lockfile"
+      ]
+    },
+    "build": {
+      "inputs": [
+        {
+          "step": "install"
+        }
+      ],
+      "commands": ["pnpm --filter @hefesto/api build"]
+    }
+  },
+  "deploy": {
+    "startCommand": "pnpm --filter @hefesto/api start:prod"
+  }
+}
