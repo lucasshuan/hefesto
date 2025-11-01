@@ -1,30 +1,31 @@
-# ---------- deps ----------
-FROM node:20-alpine AS deps
+FROM node:22-alpine AS base
+
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
 
+FROM base AS build
+
+WORKDIR /app
+
 COPY .npmrc pnpm-lock.yaml pnpm-workspace.yaml package.json ./
-COPY apps/api/package.json apps/api/package.json
-COPY apps/web/package.json apps/web/package.json
+COPY apps/web ./apps/web
+COPY packages/config/package.json ./packages/config/package.json
 
-RUN pnpm -w install --frozen-lockfile
+RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter=@hefesto/web i --frozen-lockfile
+RUN pnpm --filter @hefesto/web build
+RUN pnpm --filter @hefesto/web deploy --prod /out
 
-# ---------- build ----------
-FROM deps AS build
-WORKDIR /app
+FROM base AS deploy
 
-COPY . .
-
-RUN pnpm -w --filter @hefesto/api exec node -e "console.log(require.resolve('@nestjs/cli/package.json'))"
-RUN pnpm -w -r --filter @hefesto/api build
-RUN pnpm --filter @hefesto/api deploy --prod /out
-
-# ---------- runner ----------
-FROM node:20-alpine AS runner
-WORKDIR /app
 ENV NODE_ENV=production
 
-COPY --from=build /out .
+COPY --from=build /out/.next ./app/out/.next
+COPY --from=build /out/dist ./app/out/dist
+COPY --from=build /out/public ./app/out/public
+COPY --from=build /out/package.json ./app/out/package.json
+COPY --from=build /out/node_modules ./app/out/node_modules
+
+WORKDIR /app/out
 
 EXPOSE 3000
-CMD ["node", "dist/main.js"]
+CMD ["pnpm", "start"]
