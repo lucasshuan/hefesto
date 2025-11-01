@@ -17,8 +17,6 @@ services:
     build:
       context: .
       dockerfile: apps/api/Dockerfile
-    command: >
-      sh -c "pnpm --filter @hefesto/web db:generate && pnpm --filter @hefesto/web db:migrate"
     container_name: hefesto-api
     depends_on:
       - db

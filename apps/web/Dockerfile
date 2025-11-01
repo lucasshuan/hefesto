@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:23-alpine AS base
 
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
@@ -16,8 +16,8 @@ FROM base AS build
 
 WORKDIR /app
 
-COPY packages/config/package.json /packages/config/package.json
-COPY apps/web ./apps/web
+COPY . .
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
 
@@ -25,7 +25,7 @@ ENV NEXT_BUILD_STANDALONE=true
 
 RUN pnpm --filter @hefesto/web build
 
-FROM node:22-alpine AS deploy
+FROM node:23-alpine AS deploy
 
 WORKDIR /app
 
