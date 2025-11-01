@@ -11,7 +11,7 @@ FROM base AS deps
 
 WORKDIR /app
 
-RUN --mount=type=cache,id=s/${RAILWAY_SERVICE_ID}-/pnpm/store,target=/pnpm/store,sharing=locked \
+RUN --mount=type=cache,id=s/${RAILWAY_SERVICE_ID}-/pnpm/store,target=/pnpm/store \
   pnpm --filter @hefesto/api i --frozen-lockfile
 #RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter @hefesto/api i --frozen-lockfile
 
