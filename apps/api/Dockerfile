@@ -11,7 +11,8 @@ FROM base AS deps
 
 WORKDIR /app
 
-RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter @hefesto/api i --frozen-lockfile
+RUN --mount=type=cache,target=/pnpm/store,sharing=locked pnpm --filter @hefesto/api i --frozen-lockfile
+#RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter @hefesto/api i --frozen-lockfile
 
 FROM base AS builder
 
