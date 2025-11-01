@@ -17,13 +17,13 @@ services:
     build:
       context: .
       dockerfile: apps/api/Dockerfile
+    command: >
+      sh -c "pnpm --filter @hefesto/web db:generate && pnpm --filter @hefesto/web db:migrate"
     container_name: hefesto-api
     depends_on:
       - db
     env_file:
       - apps/api/.env.development
-    environment:
-      NODE_ENV: development
     ports:
       - '3001:3000'
 
@@ -38,7 +38,6 @@ services:
       - apps/web/.env.development
     environment:
       NEXT_PUBLIC_API_URL: http://api:3000
-      NODE_ENV: development
     ports:
       - '3000:3000'
 

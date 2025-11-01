@@ -2,30 +2,47 @@ FROM node:22-alpine AS base
 
 WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@10.20.0 --activate
+COPY .npmrc pnpm-lock.yaml pnpm-workspace.yaml package.json turbo.json ./
+COPY apps/web/package.json ./apps/web/package.json
+COPY packages/config/package.json ./packages/config/package.json
+
+FROM base AS deps
+
+WORKDIR /app
+
+RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter @hefesto/web i --frozen-lockfile
 
 FROM base AS build
 
 WORKDIR /app
 
-COPY .npmrc pnpm-lock.yaml pnpm-workspace.yaml package.json ./
+COPY packages/config/package.json /packages/config/package.json
 COPY apps/web ./apps/web
-COPY packages/config/package.json ./packages/config/package.json
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/apps/web/node_modules ./apps/web/node_modules
 
-RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter=@hefesto/web i --frozen-lockfile
+ENV NEXT_BUILD_STANDALONE=true
+
 RUN pnpm --filter @hefesto/web build
-RUN pnpm --filter @hefesto/web deploy --prod /out
 
-FROM base AS deploy
+FROM node:22-alpine AS deploy
+
+WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY --from=build /out/.next ./app/out/.next
-COPY --from=build /out/dist ./app/out/dist
-COPY --from=build /out/public ./app/out/public
-COPY --from=build /out/package.json ./app/out/package.json
-COPY --from=build /out/node_modules ./app/out/node_modules
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-WORKDIR /app/out
+COPY --from=build /app/apps/web/public ./public
 
+COPY --from=build --chown=nextjs:nodejs /app/apps/web/.next/standalone/ ./
+COPY --from=build --chown=nextjs:nodejs /app/apps/web/.next/static ./.next/static
+
+WORKDIR /app/apps/web
+
+USER nextjs
 EXPOSE 3000
-CMD ["pnpm", "start"]
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+CMD ["node", "server.js"]
