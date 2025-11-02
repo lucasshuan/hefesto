@@ -5,7 +5,7 @@ WORKDIR /app
 RUN corepack enable pnpm && corepack prepare pnpm@10.20.0 --activate
 COPY .npmrc pnpm-lock.yaml package.json pnpm-workspace.yaml turbo.json ./
 COPY apps/api/package.json ./apps/api/package.json
-COPY packages/config/package.json /packages/config/package.json
+COPY packages/eslint-config/package.json /packages/eslint-config/package.json
 
 FROM base AS deps
 
@@ -13,7 +13,6 @@ WORKDIR /app
 
 RUN --mount=type=cache,id=s/46c3f0c7-eb86-4239-93d9-9ab0acd68f30-pnpmstore,target=/pnpm/store \
   pnpm --filter @hefesto/api i --frozen-lockfile
-#RUN --mount=type=cache,id=pnpmstore,target=/pnpm/store pnpm --filter @hefesto/api i --frozen-lockfile
 
 FROM base AS builder
 
