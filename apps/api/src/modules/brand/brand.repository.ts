@@ -14,7 +14,12 @@ export class BrandRepository {
   }
 
   async selectById(id: string) {
-    const rows = await this.db.select().from(brands).where(eq(brands.id, id))
+    const rows = await this.db
+      .select()
+      .from(brands)
+      .where(eq(brands.id, id))
+      .offset(5)
+      .limit(5)
     return rows[0]
   }
 

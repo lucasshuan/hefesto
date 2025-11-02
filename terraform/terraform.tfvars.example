@@ -1,0 +1,3 @@
+project_name = "hefesto"
+domain_root  = "hefesto.felsen.io"
+repo_url     = "https://github.com/lucasshuan/hefesto"

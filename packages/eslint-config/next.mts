@@ -2,7 +2,6 @@ import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import tseslint from 'typescript-eslint'
 import next from '@next/eslint-plugin-next'
-import globals from 'globals'
 import prettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default function nextEslint({
@@ -31,9 +30,6 @@ export default function nextEslint({
         parserOptions: {
           project: ['./tsconfig.eslint.json'],
           tsconfigRootDir: tsconfigDir,
-        },
-        globals: {
-          ...globals.node,
         },
       },
       rules: {
