@@ -1,0 +1,25 @@
+{
+  "name": "@hefesto/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "proprietary",
+  "exports": {
+    "./node": "./node.mts",
+    "./next": "./next.mts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@next/eslint-plugin-next": "^16.0.1",
+    "@types/node": "^20.0.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "typescript-eslint": "^8.46.2"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "globals": "^16.4.0"
+  }
+}

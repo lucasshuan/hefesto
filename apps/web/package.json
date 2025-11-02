@@ -46,7 +46,7 @@
     "zod": "^4.1.11"
   },
   "devDependencies": {
-    "@hefesto/config": "workspace:*",
+    "@hefesto/eslint-config": "workspace:*",
     "@next/eslint-plugin-next": "16",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

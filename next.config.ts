@@ -1,4 +1,8 @@
 const nextConfig = {
-  transpilePackages: ['@hefesto/ui', '@hefesto/config', '@hefesto/types'],
+  transpilePackages: [
+    '@hefesto/ui',
+    '@hefesto/eslint-config',
+    '@hefesto/types',
+  ],
 }
 export default nextConfig

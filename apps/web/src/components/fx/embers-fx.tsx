@@ -17,7 +17,7 @@ export function EmbersFx() {
   React.useEffect(() => {
     const count = Math.floor(window.innerWidth * 0.1)
     const arr = Array.from({ length: count }).map((_, i) => {
-      const duration = Math.random() * 1 + 0.5
+      const duration = Math.random() * 2 + 0.5
       const delay = -Math.random() * duration
       const drift = (Math.random() - 0.5) * 180
       return {

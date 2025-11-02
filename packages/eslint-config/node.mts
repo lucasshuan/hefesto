@@ -30,7 +30,6 @@ export default function nodeEslint({
           project: ['./tsconfig.eslint.json'],
           tsconfigRootDir: tsconfigDir,
         },
-        sourceType: 'commonjs',
         globals: {
           ...globals.node,
           ...globals.jest,

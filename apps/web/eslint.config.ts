@@ -1,9 +1,9 @@
-import nodeEslint from '@hefesto/eslint-config/node'
-import { dirname } from 'node:path'
+import nextEslint from '@hefesto/eslint-config/next'
 import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
-export default nodeEslint({
+export default nextEslint({
   tsconfigDir: __dirname,
 })
