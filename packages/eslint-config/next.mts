@@ -22,13 +22,13 @@ export default function nextEslint({
     js.configs.recommended,
     next.configs['core-web-vitals'],
 
-    ...tseslint.configs.recommended,
+    ...tseslint.configs.recommendedTypeChecked,
 
     {
-      files: ['**/*.ts'],
+      files: ['**/*.{ts,tsx,js,jsx}'],
       languageOptions: {
         parserOptions: {
-          project: ['./tsconfig.eslint.json'],
+          project: ['./tsconfig.eslint.json', './tsconfig.json'],
           tsconfigRootDir: tsconfigDir,
         },
       },

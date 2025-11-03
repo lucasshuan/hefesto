@@ -21,13 +21,13 @@ export default function nodeEslint({
 
     js.configs.recommended,
 
-    ...tseslint.configs.recommended,
+    ...tseslint.configs.recommendedTypeChecked,
 
     {
       files: ['**/*.ts'],
       languageOptions: {
         parserOptions: {
-          project: ['./tsconfig.eslint.json'],
+          project: ['./tsconfig.eslint.json', './tsconfig.json'],
           tsconfigRootDir: tsconfigDir,
         },
         globals: {

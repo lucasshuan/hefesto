@@ -42,7 +42,7 @@ export class StorageService {
   }
 
   async uploadFile(
-    uploadedFile: File,
+    uploadedFile: Express.Multer.File,
     destination = ''
   ): Promise<{
     bucket: string
