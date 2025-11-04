@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { getRequestConfig } from 'next-intl/server'
-import { hasLocale } from 'next-intl'
+import { hasLocale, Messages } from 'next-intl'
 import { routing } from './routing'
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -8,8 +9,11 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ? requested
     : routing.defaultLocale
 
+  const messages = (await import(`@/messages/${locale}.json`))
+    .default as Messages
+
   return {
     locale,
-    messages: (await import(`@/messages/${locale}.json`)).default,
+    messages,
   }
 })

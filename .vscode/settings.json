@@ -32,7 +32,8 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#ff3d00",
-  "i18n-ally.localesPaths": ["src/i18n", "src/messages"],
+  "i18n-ally.localesPaths": ["apps/web/src/i18n", "apps/web/src/messages"],
   "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.keystyle": "nested"
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.enabledFrameworks": ["next-intl"]
 }
