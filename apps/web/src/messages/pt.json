@@ -187,7 +187,7 @@
       "description": "Adicionar uma categoria de componente."
     },
     "editUser": {
-      "title": "Create User",
+      "title": "Alterar Usuário",
       "description": "Modificar um usuário existente."
     }
   },
