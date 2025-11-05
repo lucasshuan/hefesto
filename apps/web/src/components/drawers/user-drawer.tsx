@@ -11,7 +11,8 @@ import { DrawerFooterButtons } from '@/components/common/drawer-footer-buttons'
 import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { UpdateUserDto, UserDto, UserRole } from '@/lib/api/generated'
-import { EditUserForm } from '../forms/user/edit-user-form'
+import { EditUserForm } from '../forms/user/edit-user/form'
+import { useTranslations } from 'next-intl'
 
 interface UserDrawerProps {
   data: UserDto
@@ -20,7 +21,7 @@ interface UserDrawerProps {
 }
 
 export function UserDrawer({ data, open, onOpenChange }: UserDrawerProps) {
-  const editMode = !!data
+  const t = useTranslations('drawers')
 
   const methods = useForm<UpdateUserDto>({
     defaultValues: data && { name: data.name, role: data.role as UserRole },
@@ -36,10 +37,8 @@ export function UserDrawer({ data, open, onOpenChange }: UserDrawerProps) {
     <Drawer direction="right" open={open} onOpenChange={onOpenChange}>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>{editMode ? 'Editar' : 'Adicionar'} Usuário</DrawerTitle>
-          <DrawerDescription>
-            {editMode ? 'Atualizar' : 'Adicionar'} um usuário.
-          </DrawerDescription>
+          <DrawerTitle>{t('editUser.title')}</DrawerTitle>
+          <DrawerDescription>{t('editUser.description')}</DrawerDescription>
         </DrawerHeader>
         <FormProvider {...methods}>
           <div className="mx-4 mt-2">

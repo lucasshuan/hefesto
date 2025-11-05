@@ -15,8 +15,9 @@ import {
   CreateCategoryDto,
   UpdateCategoryDto,
 } from '@/lib/api/generated'
-import { EditCategoryForm } from '../forms/category/edit-category-form'
-import { AddCategoryForm } from '../forms/category/add-category-form'
+import { EditCategoryForm } from '../forms/category/edit-category/form'
+import { AddCategoryForm } from '../forms/category/add-category/form'
+import { useTranslations } from 'next-intl'
 
 interface CategoryDrawerProps {
   data?: CategoryDto
@@ -29,6 +30,7 @@ export function CategoryDrawer({
   open,
   onOpenChange,
 }: CategoryDrawerProps) {
+  const t = useTranslations('drawers')
   const editMode = !!data
 
   const methods = useForm<CreateCategoryDto | UpdateCategoryDto>({
@@ -46,10 +48,12 @@ export function CategoryDrawer({
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>
-            {editMode ? 'Editar' : 'Adicionar'} Categoria
+            {editMode ? t('editCategory.title') : t('addCategory.title')}
           </DrawerTitle>
           <DrawerDescription>
-            {editMode ? 'Atualizar' : 'Adicionar'} uma categoria de componente.
+            {editMode
+              ? t('editCategory.description')
+              : t('addCategory.description')}
           </DrawerDescription>
         </DrawerHeader>
         <FormProvider {...methods}>

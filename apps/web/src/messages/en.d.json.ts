@@ -171,8 +171,37 @@ declare const messages: {
     }
   }
   drawers: {
-    brand: {
-      title: '{mode, select, add {Add} edit {Edit}} Brand'
+    editBrand: {
+      title: 'Update Brand'
+      description: 'Modify a brand of hardware components.'
+    }
+    addBrand: {
+      title: 'Create Brand'
+      description: 'Add a brand of hardware components.'
+    }
+    editCategory: {
+      title: 'Update Category'
+      description: 'Modify a category of hardware components.'
+    }
+    addCategory: {
+      title: 'Create Category'
+      description: 'Add a category of hardware components.'
+    }
+    editUser: {
+      title: 'Update User'
+      description: 'Edit an existing user.'
+    }
+  }
+  forms: {
+    common: {
+      loading: 'Sending...'
+      genericError: 'Something went wrong.'
+    }
+    addBrand: {
+      success: 'Brand "{name}" created successfully.'
+      labels: {
+        name: 'Name'
+      }
     }
   }
 }

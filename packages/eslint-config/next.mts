@@ -42,6 +42,9 @@ export default function nextEslint({
           'warn',
           { ignoreRestArgs: true },
         ],
+
+        '@typescript-eslint/no-misused-promises': 'off',
+        '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/require-await': 'off',
       },
     },

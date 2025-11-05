@@ -170,8 +170,37 @@
     }
   },
   "drawers": {
-    "brand": {
-      "title": "{mode, select, add {Criar} edit {Editar}} Marca"
+    "editBrand": {
+      "title": "Alterar Marca",
+      "description": "Modificar uma marca de componente."
+    },
+    "addBrand": {
+      "title": "Criar Marca",
+      "description": "Adicionar uma marca de componente."
+    },
+    "editCategory": {
+      "title": "Alterar Categoria",
+      "description": "Modificar uma categoria de componente."
+    },
+    "addCategory": {
+      "title": "Criar Categoria",
+      "description": "Adicionar uma categoria de componente."
+    },
+    "editUser": {
+      "title": "Create User",
+      "description": "Modificar um usuário existente."
+    }
+  },
+  "forms": {
+    "common": {
+      "loading": "Enviando...",
+      "genericError": "Ocorreu um erro."
+    },
+    "addBrand": {
+      "success": "Marca \"{name}\" criada com sucesso.",
+      "labels": {
+        "name": "Nome"
+      }
     }
   }
 }

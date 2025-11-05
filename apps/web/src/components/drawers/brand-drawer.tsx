@@ -7,8 +7,8 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
-import { AddBrandForm } from '@/components/forms/brand/add-brand-form'
-import { EditBrandForm } from '@/components/forms/brand/edit-brand-form'
+import { AddBrandForm } from '@/components/forms/brand/add-brand/form'
+import { EditBrandForm } from '@/components/forms/brand/edit-brand/form'
 import { DrawerFooterButtons } from '@/components/common/drawer-footer-buttons'
 import React from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -41,10 +41,10 @@ export function BrandDrawer({ data, open, onOpenChange }: BrandDrawerProps) {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>
-            {t('brand.title', { mode: editMode ? 'edit' : 'add' })}
+            {editMode ? t('editBrand.title') : t('addBrand.title')}
           </DrawerTitle>
           <DrawerDescription>
-            {editMode ? 'Atualizar' : 'Adicionar'} uma marca de componente.
+            {editMode ? t('editBrand.description') : t('addBrand.description')}
           </DrawerDescription>
         </DrawerHeader>
         <FormProvider {...methods}>
