@@ -10,6 +10,7 @@ import { toast } from 'sonner'
 import React from 'react'
 import { toastError } from '@/lib/utils/toast'
 import { EditCategoryFormFields } from './fields'
+import { useTranslations } from 'next-intl'
 
 interface EditCategoryFormProps
   extends React.FormHTMLAttributes<HTMLFormElement> {
@@ -22,6 +23,7 @@ export function EditCategoryForm({
   onCompletion,
   ...props
 }: EditCategoryFormProps) {
+  const t = useTranslations('forms')
   const queryClient = useQueryClient()
 
   const { handleSubmit, reset } = useFormContext<UpdateCategoryDto>()
@@ -43,9 +45,11 @@ export function EditCategoryForm({
       data,
     })
     toast.promise(request, {
-      loading: 'Enviando...',
+      loading: t('common.loading'),
       success: {
-        message: `Marca "${data.name}" editada com sucesso!`,
+        message: t('editCategory.success', {
+          name: data.name ?? category.name,
+        }),
         description: formattedDate,
       },
       error: toastError,

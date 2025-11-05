@@ -10,6 +10,7 @@ import { toast } from 'sonner'
 import React from 'react'
 import { EditBrandFormFields } from './fields'
 import { toastError } from '@/lib/utils/toast'
+import { useTranslations } from 'next-intl'
 
 interface EditBrandFormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   brand: BrandDto
@@ -21,6 +22,7 @@ export function EditBrandForm({
   onCompletion,
   ...props
 }: EditBrandFormProps) {
+  const t = useTranslations('forms')
   const queryClient = useQueryClient()
 
   const { handleSubmit, reset } = useFormContext<UpdateBrandDto>()
@@ -39,9 +41,9 @@ export function EditBrandForm({
     const formattedDate = new Date().toLocaleString('pt-br')
     const request = updateBrandMutation.mutateAsync({ id: brand.id, data })
     toast.promise(request, {
-      loading: 'Enviando...',
+      loading: t('common.loading'),
       success: {
-        message: `Marca "${data.name}" editada com sucesso!`,
+        message: t('editBrand.success', { name: data.name ?? brand.name }),
         description: formattedDate,
       },
       error: toastError,

@@ -203,6 +203,18 @@ declare const messages: {
         name: 'Name'
       }
     }
+    editUser: {
+      success: 'User "{name}" updated successfully.'
+    }
+    editCategory: {
+      success: 'Category "{name}" updated successfully.'
+    }
+    addCategory: {
+      success: 'Category "{name}" created successfully.'
+    }
+    editBrand: {
+      success: 'Brand "{name}" updated successfully.'
+    }
   }
 }
 export default messages

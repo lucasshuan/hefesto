@@ -9,6 +9,7 @@ import { toast } from 'sonner'
 import React from 'react'
 import { AddCategoryFormFields } from './fields'
 import { toastError } from '@/lib/utils/toast'
+import { useTranslations } from 'next-intl'
 
 interface AddCategoryFormProps
   extends React.FormHTMLAttributes<HTMLFormElement> {
@@ -19,6 +20,7 @@ export function AddCategoryForm({
   onCompletion,
   ...props
 }: AddCategoryFormProps) {
+  const t = useTranslations('forms')
   const queryClient = useQueryClient()
 
   const { handleSubmit, reset } = useFormContext<CreateCategoryDto>()
@@ -37,9 +39,9 @@ export function AddCategoryForm({
     const formattedDate = new Date().toLocaleString('pt-br')
     const request = createCategoryMutation.mutateAsync({ data })
     toast.promise(request, {
-      loading: 'Enviando...',
+      loading: t('common.loading'),
       success: {
-        message: `Categoria "${data.name}" criada com sucesso!`,
+        message: t('addCategory.success', { name: data.name }),
         description: formattedDate,
       },
       error: toastError,

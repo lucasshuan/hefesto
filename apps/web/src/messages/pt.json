@@ -201,6 +201,18 @@
       "labels": {
         "name": "Nome"
       }
+    },
+    "editUser": {
+      "success": "Usuário \"{name}\" atualizado com sucesso."
+    },
+    "editCategory": {
+      "success": "Categoria \"{name}\" atualizada com sucesso."
+    },
+    "addCategory": {
+      "success": "Categoria \"{name\"} criada com sucesso."
+    },
+    "editBrand": {
+      "success": "Marca \"{name}\" alterada com sucesso."
     }
   }
 }
